@@ -128,9 +128,8 @@ write this:
 ```
 
 - Global `SCSS rules` or `stylesheets` are generally **not** allowed, with 1 exeption:
-
- - `Vue.js` projects: You **are** allowed to set the `font-family` globally (**excluding** `line-height`, `font-size`, etc...).
- - `Nuxt.js` projects: You **are** allowed to set `typography rules` globally (**including** `line-height`, `font-size`, etc...).
+`Vue.js` projects: You **are** allowed to set the `font-family` globally (**excluding** `line-height`, `font-size`, etc...).
+`Nuxt.js` projects: You **are** allowed to set `typography rules` globally (**including** `line-height`, `font-size`, etc...).
  
 - If you need a `global rule` to modify the style of `all buttons`, you will need to write an `scss mixin` and use it for every single button within each `Vue.js component`
 
@@ -143,7 +142,7 @@ You have a `block`:
 <div class="my-block"></div>
 ```
 
-And you block has one or more `elements`. A block and its elements are connected with `__`
+And your block has one or more `elements`. A block and its elements are connected with `__`
 ```html
 <div class="my-block">
   <div class="my-block__header"></div>
