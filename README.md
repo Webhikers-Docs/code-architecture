@@ -1,6 +1,6 @@
 # code-architecture
 
-This is a short tutorial, how to write code for our `Vue.js` or `Nuxt.js` projects.
+This is a short tutorial, how to structure and organize code for our `Vue.js` or `Nuxt.js` projects.
 It's important to stick with these rules, so the code of our projects remains maintainable.
 
 ## 1. Build `pages` with modular `components`
