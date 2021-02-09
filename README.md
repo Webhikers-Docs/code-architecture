@@ -112,11 +112,13 @@ Please **pay a lot of attention** to the following checklist.
   ```scss
   
     //this is not allowed
+    
     p{
       margin:0
     }
     
     //this is allowed
+    
     .my-layout{
       p{
         margin:0
@@ -128,6 +130,15 @@ Please **pay a lot of attention** to the following checklist.
   If you want to write a `_reset.scss` file, you also **must** use a layout wrapper:
   
   ```scss
+  
+  //this is not allowed  
+  
+  ul {
+     list-style: none;
+   }
+  
+   //this is allowed
+   
   .my-layout{
     ul {
        list-style: none;
@@ -135,9 +146,12 @@ Please **pay a lot of attention** to the following checklist.
   }
   ```
   
-  It's **forbidden** to setup rules for `body` or `html` tags. The following example is **not** allowed:
+  It's **forbidden** to setup rules for `body` or `html` tags:
   
     ```scss
+      
+      //this is not allowed
+    
       body,
       html {
         margin: 0;
@@ -152,7 +166,9 @@ Please **pay a lot of attention** to the following checklist.
   All `vue components` that are used on **more than one page** (like `header`, `footer`, `navbar`, `sidebar`) **MUST NOT** be wrapped inside the `layout` wrapper.
   
   ```html
-  <!--This is forbidden-->
+
+  <!--This is not allowed-->
+
   <div class="my-layout">
     <header></header>
     <div class="container"></div>
@@ -160,11 +176,13 @@ Please **pay a lot of attention** to the following checklist.
   </div>
 
   <!--This is allowed-->
+
   <header></header>
   <div class="my-layout">
     <div class="container"></div>
   </div>
   <footer></footer>
+
   ```
   
   The only css rule that can and **should** be set globally is the `font-family` rule.
