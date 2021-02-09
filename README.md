@@ -86,6 +86,102 @@ I've seen people writing a lot of global `scss` into `Vue.js` applications, whic
 
 Please **pay a lot of attention** to the following checklist.
 
+- All `Vue.js` components `style tags` **Must** be scoped. If the modification of `bootstrap-vue` components doesn't work with the `scoped` attribute, you will need to find a way around, or create your own component instead. Removing the `scoped` attribute in order to modify a `boostrap-vue` component won't be accepted.
+
+```vue
+<template>
+  <div>
+    <h1>This is a component</h1>
+  </div>
+</template>
+
+<script>
+
+  export default{}
+</script>
+
+<style lang="scss" scoped>
+
+</style>
+```
+ 
+- It is **forbidden** to write global `css` without any kind of scoping:
+
+  This is an example how you **can** and how you **cannot** style a `p` tag:
+  
+  ```scss
+  
+    //this is not allowed
+    p{
+      margin:0
+    }
+    
+    //this is allowed
+    .my-layout{
+      p{
+        margin:0
+      }
+    } 
+    
+  ```
+  
+  If you want to write a `_reset.scss` file, you also **must** use a layout wrapper:
+  
+  ```scss
+  .my-layout{
+    ul {
+       list-style: none;
+     }
+  }
+  ```
+  
+  It's **forbidden** to setup rules for `body` or `html` tags. The following example is **not** allowed:
+  
+    ```scss
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        background: 0 0;
+      }
+  ```
+
+  All `vue components` that are used on **more than one page** (like `header`, `footer`, `navbar`, `sidebar`) **MUST NOT** be wrapped inside the `layout` wrapper.
+  
+  ```html
+  <!--This is forbidden-->
+  <div class="my-layout">
+    <header></header>
+    <div class="container"></div>
+    <footer></footer>
+  </div>
+
+  <!--This is allowed-->
+  <header></header>
+  <div class="my-layout">
+    <div class="container"></div>
+  </div>
+  <footer></footer>
+  ```
+  
+  The only css rule that can and **should** be set globally is the `font-family` rule.
+  
+  ```scss
+  
+    //this is allowed
+    body{
+      font-family: 'Open Sans', sans-serif;
+    }
+    
+  ```  
+
+- Any component-related styling must be written inside the component with a `scoped` attribute.
+
+- Responsive `scss` code **must** also go inside the component. Please **don't** write a global `responsive.scss` file.   
+
 - **Never** write css syntax. Always write scss syntax.
 
 So instead of this:
@@ -107,33 +203,6 @@ write this:
   }
 }
 ```
-
-- All `Vue.js` components `style tags` **Must** be scoped. If the modification of `bootstrap-vue` components doesn't work with the `scoped` attribute, you will need to find a way around, or create your own component instead. Removing the `scoped` attribute in order to modify a `boostrap-vue` component won't be accepted.
-
-```vue
-<template>
-  <div>
-    <h1>This is a component</h1>
-  </div>
-</template>
-
-<script>
-
-  export default{}
-</script>
-
-<style lang="scss" scoped>
-
-</style>
-```
-
-- Global `SCSS rules` or `stylesheets` are generally **not** allowed, with 1 exeption:
-`Vue.js` projects: You **are** allowed to set the `font-family` globally (**excluding** `line-height`, `font-size`, etc...).
-`Nuxt.js` projects: You **are** allowed to set `typography rules` globally (**including** `line-height`, `font-size`, etc...).
- 
-- If you need a `global rule` to modify the style of `all buttons`, you will need to write an `scss mixin` and use it for every single button within each `Vue.js component`
-
-- Responsive `scss` code **must** also go inside the component. Please **don't** write a global `responsive.scss` file. 
 
 - The following is **not** a requirement, but we really would appreciate it very much: Use the `BEM` (Block-Element-Modifier) naming convention for scss classes. The concept is simple: 
 
