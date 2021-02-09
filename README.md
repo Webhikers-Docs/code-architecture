@@ -50,7 +50,7 @@ in `@/components/pages/about/section-bio.vue`
   export default{}
 </script>
 ```
-Then import all section components into the page. Now you have a beautifully and clean page.
+Then import all section components into the page. Now you have a beautiful and clean page.
 
 in `@/pages/about.vue`
 
