@@ -112,6 +112,8 @@ Please **pay a lot of attention** to the following checklist.
 
   This is an example how you **can** and how you **cannot** style a `p` tag:
   
+  In `path/to/main.scss`:
+  
   ```scss
   
     //this is not allowed
@@ -131,6 +133,8 @@ Please **pay a lot of attention** to the following checklist.
   ```
   
   If you want to write a `_reset.scss` file, you also **must** use a layout wrapper:
+  
+  In `path/to/main.scss`:
   
   ```scss
   
@@ -152,6 +156,8 @@ Please **pay a lot of attention** to the following checklist.
   <a name="html-root"/> 
   It's **forbidden** to setup rules for `body` or `html` tags:
   
+    In `path/to/main.scss`:
+    
     ```scss
       
       //this is not allowed
