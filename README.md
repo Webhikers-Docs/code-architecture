@@ -3,6 +3,7 @@
 This is a short tutorial, how to structure and organize code for our `Vue.js` or `Nuxt.js` projects.
 It's important to stick with these rules, so the code of our projects remains maintainable.
 
+<a name="modular-components"/>
 ## 1. Build `pages` with modular `components`
 
 Let's start with an example of a page, called `about`. The page contains a `hero_section`, a `team_section`, and a `bio_section`.
@@ -86,6 +87,7 @@ I've seen people writing a lot of global `scss` into `Vue.js` applications, whic
 
 Please **pay a lot of attention** to the following checklist.
 
+<a name="scoped-style"/>
 - All `Vue.js` components `style tags` **must** be scoped. If the modification of `bootstrap-vue` components doesn't work with the `scoped` attribute, you will need to find a way around, or create your own component instead. Removing the `scoped` attribute in order to modify a `boostrap-vue` component won't be accepted.
 
 ```vue
@@ -104,7 +106,8 @@ Please **pay a lot of attention** to the following checklist.
 
 </style>
 ```
- 
+
+<a name="global-css"/> 
 - It is **forbidden** to write global `css` without any kind of scoping:
 
   This is an example how you **can** and how you **cannot** style a `p` tag:
@@ -146,6 +149,7 @@ Please **pay a lot of attention** to the following checklist.
   }
   ```
   
+  <a name="html-root"/> 
   It's **forbidden** to setup rules for `body` or `html` tags:
   
     ```scss
@@ -163,6 +167,7 @@ Please **pay a lot of attention** to the following checklist.
       }
   ```
 
+  <a name="recurring-components"/> 
   All `vue components` that are used on **more than one page** (like `header`, `footer`, `navbar`, `sidebar`) **MUST NOT** be wrapped inside the `layout` wrapper.
   
   ```html
