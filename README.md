@@ -86,7 +86,7 @@ I've seen people writing a lot of global `scss` into `Vue.js` applications, whic
 
 Please **pay a lot of attention** to the following checklist.
 
-- All `Vue.js` components `style tags` **Must** be scoped. If the modification of `bootstrap-vue` components doesn't work with the `scoped` attribute, you will need to find a way around, or create your own component instead. Removing the `scoped` attribute in order to modify a `boostrap-vue` component won't be accepted.
+- All `Vue.js` components `style tags` **must** be scoped. If the modification of `bootstrap-vue` components doesn't work with the `scoped` attribute, you will need to find a way around, or create your own component instead. Removing the `scoped` attribute in order to modify a `boostrap-vue` component won't be accepted.
 
 ```vue
 <template>
